@@ -1,9 +1,20 @@
 import unittest
 
-class TestDockPlane(unittest.TestCase):
+from airport import Airport
+
+class TestAirportClass(unittest.TestCase):
     
     def test_dock_plane_inserts_plane(self):
-      self.assertEqual("foo".upper(), "FOO")
+      jfk = Airport()
+      jfk.dock("Plane")
+      self.assertEqual(jfk.docked[0], "Plane")
+
+    def test_dock_plane_takes_more_than_one_plane(self):
+      jfk = Airport()
+      jfk.dock("Plane")
+      jfk.dock("Another Plane")
+      self.assertEqual(len(jfk.docked), 2)
+
 
 if __name__ == "__main__":
     unittest.main()
