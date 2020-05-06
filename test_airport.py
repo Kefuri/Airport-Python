@@ -15,6 +15,13 @@ class TestAirportClass(unittest.TestCase):
       jfk.dock("Another Plane")
       self.assertEqual(len(jfk.docked), 2)
 
+    def test_takeoff_removes_plane_from_docked(self):
+      jfk = Airport()
+      jfk.dock("Plane")
+      jfk.takeoff()
+      self.assertEqual(len(jfk.docked), 0)
+
+
 
 if __name__ == "__main__":
     unittest.main()

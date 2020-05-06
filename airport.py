@@ -4,3 +4,6 @@ class Airport():
 
   def dock(self, plane):
     self.docked.append(plane)
+
+  def takeoff(self):
+    self.docked.pop()
