@@ -1,8 +1,15 @@
 import unittest
 
 from airport import Airport
+from plane import Plane
 
 class TestAirportClass(unittest.TestCase):
+
+    def test_plane_object_gets_name(self):
+      jfk = Airport()
+      boeing = Plane("Boeing")
+      jfk.dock(boeing)
+      self.assertEqual(jfk.docked[0].get_name(), "Boeing")
     
     def test_dock_plane_inserts_plane(self):
       jfk = Airport()
