@@ -27,6 +27,14 @@ class TestAirportClass(unittest.TestCase):
       jfk.dock("Plane")
       jfk.takeoff()
       self.assertEqual(len(jfk.docked), 0)
+    
+    def test_docking_same_plane_twice_not_allowed(self):
+      jfk = Airport()
+      boeing = Plane("Boeing")
+      jfk.dock(boeing)
+      self.assertEqual(len(jfk.docked), 1)
+      with self.assertRaises(ValueError):
+        jfk.dock(boeing)
 
     def test_specific_plane_to_takeoff(self):
       jfk = Airport()
